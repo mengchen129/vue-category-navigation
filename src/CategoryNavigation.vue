@@ -25,7 +25,6 @@
 <script>
     import ScrollUtils from './ScrollUtils';
 
-    const WINDOW_WIDTH = window.innerWidth;
     export default {
         name: 'category-navigation',
         data() {
@@ -63,7 +62,7 @@
                     var itemSelected = domHeader.querySelector('.type-item.selected');
                     var itemWidth = itemSelected.offsetWidth;
                     var itemLeft = itemSelected.offsetLeft;
-                    var destOffset = itemLeft - (WINDOW_WIDTH - itemWidth) / 2;
+                    var destOffset = itemLeft - (window.innerWidth - itemWidth) / 2;
                     if (destOffset < 0) {
                         destOffset = 0;
                     }
@@ -158,6 +157,12 @@
         text-align: center;
         flex-shrink: 0;
         width: 25%;
+        border-bottom: 1px solid #eeeeee;
+        border-right: 1px solid #eeeeee;
+    }
+
+    .types-list > .list-item:nth-child(4n) {
+        border-right: none;
     }
 
     .list-item.selected {
